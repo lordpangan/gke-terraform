@@ -12,12 +12,13 @@ By default, an initial 1 node will be created using e2-standard-2(2 vCPUs and 8 
 
 ## Provisioning
 1. Fill out the TFvars, use the `project1_dev.tfvars` as guide.
-2. Inside the project1_dev dir, edit the `0_gke-cluster/provider.tf`, indicate the bucket name, prefix and credentials to use. Use the current provider.tf as guide.
+2. Inside the project1_dev dir, edit the `0_gke-cluster/provider.tf`, indicate the terraform state bucket name, prefix and credentials to use. Use the current provider.tf as guide.
 3. Run `terraform init` and `terraform plan -var-file="../../project1_dev.tfvars"`.
 4. If all looks good, then run `terraform apply -var-file="../../project1_dev.tfvars"`.
 5. Wait for the k8s cluster to be provisioned.
 6. If you want to learn to deploy an app using terraform use the `1_sample_app` dir as guide, here we did not only deployed the deployment and service of a sample app we also created an ingress to expose our app. This ingress utilizes Google Cloud load balancers, so we do not need to deploy an ingress nginx for this.
-7. You can now play around with this newly provisioned k8s cluster!
+7. Once the app is finished deploying you can access the demo app through the output `ingress_ip`.
+8. You can now play around with this newly provisioned k8s cluster!
 
 Happy Hacking!
 
